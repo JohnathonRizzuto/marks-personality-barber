@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mark's Personality Barber Shop — Streator's Original Character Cut</title>
+<meta name="description" content="Mark's Personality Barber Shop at 423 E Main St, Streator IL. Cuts with character, conversation included. Walk-ins welcome. (815) 672-4765.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --cream:#f4f1de;
+  --cream-deep:#ede8c8;
+  --orange:#e76f51;
+  --orange-deep:#c95a3f;
+  --teal:#2a9d8f;
+  --teal-deep:#218074;
+  --ink:#2b2b2b;
+  --ink-soft:#5b5b5b;
+  --yellow:#e9c46a;
+  --font-display:'Bowlby One',Impact,sans-serif;
+  --font-body:'Nunito',sans-serif;
+}
+body{font-family:var(--font-body);background:var(--cream);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased;font-weight:400}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.fade-up{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+
+/* WAVES */
+.wave-divider{display:block;width:100%;height:50px;background:var(--cream);overflow:hidden}
+.wave-divider svg{display:block;width:100%;height:100%}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.9rem 2rem;display:flex;align-items:center;justify-content:space-between;transition:background .3s,box-shadow .3s}
+.nav.scrolled{background:var(--cream);box-shadow:0 4px 0 var(--orange)}
+.brand{font-family:var(--font-display);font-size:1.55rem;color:var(--ink);letter-spacing:.01em;display:flex;align-items:center;gap:.4rem}
+.brand-mark{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;background:var(--orange);color:var(--cream);border-radius:50%;font-size:1.1rem;transform:rotate(-8deg)}
+.nav-links{display:flex;gap:1.6rem;list-style:none}
+.nav-links a{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--ink);transition:color .2s}
+.nav-links a:hover{color:var(--orange)}
+.cta{background:var(--teal);color:var(--cream);padding:11px 22px;font-size:.74rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;transition:transform .15s,background .2s;border:none;cursor:pointer;font-family:var(--font-body);border-radius:50px}
+.cta:hover{background:var(--teal-deep);transform:rotate(-2deg)}
+.menu-toggle{display:none;background:none;border:none;cursor:pointer;padding:4px}
+.menu-toggle span{display:block;width:22px;height:2px;background:var(--ink);margin:4px 0}
+
+/* HERO */
+.hero{min-height:96vh;display:flex;align-items:center;text-align:left;position:relative;padding:7rem 2rem 5rem;background:var(--cream);overflow:hidden}
+.hero::before{content:"";position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:var(--orange);border-radius:50%;opacity:.22;z-index:0}
+.hero::after{content:"";position:absolute;bottom:-150px;left:-100px;width:380px;height:380px;background:var(--teal);border-radius:50%;opacity:.18;z-index:0}
+.hero-inner{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1.05fr 1fr;gap:3rem;align-items:center;width:100%;position:relative;z-index:2}
+.hero-tag{display:inline-flex;align-items:center;gap:.4rem;background:var(--yellow);color:var(--ink);padding:7px 16px;font-size:.72rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;border-radius:50px;margin-bottom:1.5rem;transform:rotate(-2deg)}
+.hero-title{font-family:var(--font-display);font-size:clamp(2.6rem,7.5vw,5.4rem);line-height:1;color:var(--ink);margin-bottom:1.4rem}
+.hero-title em{color:var(--orange);font-style:normal}
+.hero-title u{text-decoration:none;color:var(--teal)}
+.hero-sub{font-size:1.06rem;color:var(--ink-soft);line-height:1.75;max-width:500px;margin-bottom:2rem;font-weight:500}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:var(--cream);padding:15px 32px;font-size:.78rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;transition:all .2s;border:none;cursor:pointer;font-family:var(--font-body);border-radius:50px}
+.btn-primary:hover{background:var(--orange-deep);transform:translateY(-3px) rotate(-1deg)}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;border:2.5px solid var(--ink);color:var(--ink);padding:13px 30px;font-size:.78rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;transition:all .2s;border-radius:50px;background:transparent}
+.btn-outline:hover{background:var(--ink);color:var(--cream)}
+.hero-card{position:relative;aspect-ratio:1/1;background:var(--teal);overflow:hidden;border-radius:24px;transform:rotate(2deg);border:5px solid var(--ink)}
+.hero-card::before{content:"PERSONALITY";position:absolute;left:0;right:0;bottom:14px;text-align:center;font-family:var(--font-display);color:var(--cream);font-size:1.2rem;letter-spacing:.2em;z-index:3}
+.hero-card img{width:100%;height:100%;object-fit:cover;filter:saturate(1.05)}
+
+/* STATS */
+.stats{background:var(--teal);color:var(--cream);padding:2.4rem 2rem;display:flex;justify-content:center;gap:3rem;flex-wrap:wrap;text-align:center;border-top:5px solid var(--ink);border-bottom:5px solid var(--ink)}
+.stat-num{font-family:var(--font-display);font-size:2.2rem;color:var(--yellow);display:block;line-height:1}
+.stat-label{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;font-weight:800;margin-top:.4rem;display:block;color:var(--cream)}
+
+/* SECTION */
+.sec{padding:6rem 2rem}
+.sec-inner{max-width:1080px;margin:0 auto}
+.sec-pre{font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;color:var(--orange);font-weight:800;margin-bottom:.8rem}
+.sec-title{font-family:var(--font-display);font-size:clamp(2.2rem,5vw,3.8rem);line-height:1;margin-bottom:1.3rem;color:var(--ink)}
+.sec-title em{color:var(--orange);font-style:normal}
+.sec-title u{text-decoration:none;color:var(--teal)}
+.sec-desc{color:var(--ink-soft);font-size:1rem;line-height:1.8;max-width:580px;font-weight:500}
+.sec-center{text-align:center}
+.sec-center .sec-desc{margin:0 auto 3rem}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.about-img-wrap{position:relative;aspect-ratio:4/5}
+.about-img-wrap::before{content:"";position:absolute;inset:-16px -16px 16px 16px;background:var(--orange);border-radius:24px;z-index:1}
+.about-img{position:relative;width:100%;height:100%;border-radius:24px;overflow:hidden;border:5px solid var(--ink);z-index:2}
+.about-img img{width:100%;height:100%;object-fit:cover}
+.about-quote{font-family:var(--font-display);font-size:1.5rem;color:var(--teal);background:var(--cream-deep);padding:1.2rem 1.4rem;border-radius:16px;margin-top:1.5rem;line-height:1.25;transform:rotate(-.6deg)}
+
+/* SERVICES */
+.services-bg{background:var(--orange);color:var(--cream)}
+.services-bg .sec-pre{color:var(--yellow)}
+.services-bg .sec-title{color:var(--cream)}
+.services-bg .sec-title em{color:var(--yellow)}
+.services-bg .sec-desc{color:rgba(244,241,222,.85)}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.4rem;margin-top:2rem}
+.svc-card{background:var(--cream);color:var(--ink);border-radius:20px;padding:1.8rem 1.6rem;transition:transform .2s;border:4px solid var(--ink);box-shadow:6px 6px 0 var(--ink)}
+.svc-card:hover{transform:translate(-3px,-3px);box-shadow:9px 9px 0 var(--teal)}
+.svc-icon{display:inline-flex;align-items:center;justify-content:center;width:50px;height:50px;background:var(--yellow);border-radius:50%;font-size:1.4rem;margin-bottom:.9rem;border:3px solid var(--ink)}
+.svc-name{font-family:var(--font-display);font-size:1.4rem;margin-bottom:.4rem;color:var(--ink)}
+.svc-desc{font-size:.9rem;color:var(--ink-soft);line-height:1.6;font-weight:500}
+.svc-price{font-family:var(--font-display);font-size:1.2rem;color:var(--teal);margin-top:.8rem;display:inline-block}
+
+/* TESTI */
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.4rem;margin-top:2rem}
+.testi-card{background:var(--cream-deep);padding:2rem 1.6rem;border-radius:16px;border:3px dashed var(--ink);position:relative}
+.testi-card:nth-child(1){transform:rotate(-1deg)}
+.testi-card:nth-child(2){transform:rotate(1deg)}
+.testi-card:nth-child(3){transform:rotate(-.5deg)}
+.testi-stars{color:var(--orange);font-size:1rem;margin-bottom:.6rem;letter-spacing:3px}
+.testi-text{color:var(--ink);font-size:.95rem;line-height:1.65;margin-bottom:1rem;font-weight:600}
+.testi-author{font-size:.7rem;color:var(--ink-soft);font-weight:800;letter-spacing:.2em;text-transform:uppercase}
+
+/* CONTACT */
+.contact{background:var(--ink);color:var(--cream);text-align:center}
+.contact .sec-pre{color:var(--yellow)}
+.contact .sec-title{color:var(--cream)}
+.contact .sec-title em{color:var(--orange)}
+.contact .sec-desc{color:rgba(244,241,222,.7)}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem;max-width:880px;margin:2.5rem auto 0}
+.ci{background:rgba(244,241,222,.05);border:3px solid var(--yellow);border-radius:18px;padding:1.6rem 1.4rem}
+.ci-icon{font-size:1.6rem;margin-bottom:.4rem}
+.ci-label{font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--yellow);font-weight:800;margin-bottom:.4rem}
+.ci-value{font-size:.95rem;color:var(--cream);line-height:1.55;font-weight:600}
+.ci-value a{color:var(--orange)}
+.map-wrap{margin-top:3rem;max-width:880px;margin-left:auto;margin-right:auto;height:300px;border:5px solid var(--orange);border-radius:18px;overflow:hidden}
+.map-wrap iframe{width:100%;height:100%;border:0}
+
+/* FOOTER */
+.footer{background:var(--teal);color:var(--cream);padding:3rem 2rem;text-align:center}
+.f-brand{font-family:var(--font-display);font-size:1.7rem;margin-bottom:.5rem;letter-spacing:.01em}
+.f-tag{color:rgba(244,241,222,.85);font-size:.86rem;margin-bottom:1rem;letter-spacing:.06em;font-weight:600}
+.f-copy{font-size:.72rem;color:rgba(244,241,222,.7);letter-spacing:.06em}
+
+@media(max-width:860px){
+  .nav-links{display:none}
+  .cta{display:none}
+  .menu-toggle{display:block}
+  .nav-links.open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--cream);padding:1.5rem 2rem;gap:1.2rem;box-shadow:0 4px 0 var(--orange)}
+  .hero{padding:6rem 1.4rem 3rem;min-height:auto}
+  .hero-inner{grid-template-columns:1fr;gap:2.5rem}
+  .about-grid{grid-template-columns:1fr;gap:3.5rem}
+  .stats{gap:1.4rem;padding:1.6rem 1rem}
+  .sec{padding:4rem 1.2rem}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <a href="#" class="brand"><span class="brand-mark">M</span>ark's Personality</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#visit">Visit</a></li>
+  </ul>
+  <a href="tel:+18156724765" class="cta">Call Mark</a>
+  <button class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <span class="hero-tag fade-up">★ E Main Street · Streator</span>
+      <h1 class="hero-title fade-up d1">A Cut with<br><em>Character.</em><br><u>Conversation Included.</u></h1>
+      <p class="hero-sub fade-up d2">Mark's Personality Barber Shop has been Streator's spot for the kind of haircut you remember and the kind of conversation that makes the chair worth a half-hour. Walk in for the cut, stay for the laugh.</p>
+      <div class="hero-btns fade-up d3">
+        <a href="tel:+18156724765" class="btn-primary">(815) 672-4765</a>
+        <a href="#services" class="btn-outline">See Services</a>
+      </div>
+    </div>
+    <div class="hero-card fade-up d2">
+      <!-- REPLACE WITH REAL PHOTO -->
+      <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=800&q=80" alt="Mark's Personality Barber Shop">
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="fade-up"><span class="stat-num">★★★★★</span><span class="stat-label">Streator Favorite</span></div>
+  <div class="fade-up d1"><span class="stat-num">$</span><span class="stat-label">Honest Pricing</span></div>
+  <div class="fade-up d2"><span class="stat-num">Walk-In</span><span class="stat-label">Friendly</span></div>
+  <div class="fade-up d3"><span class="stat-num">100%</span><span class="stat-label">Personality</span></div>
+</div>
+
+<!-- ABOUT -->
+<section class="sec" id="about">
+  <div class="sec-inner about-grid">
+    <div class="about-img-wrap fade-up">
+      <div class="about-img">
+        <!-- REPLACE WITH REAL PHOTO -->
+        <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=800&q=80" alt="Inside Mark's">
+      </div>
+    </div>
+    <div>
+      <div class="sec-pre fade-up">The Shop</div>
+      <h2 class="sec-title fade-up d1">More Than a <em>Haircut.</em></h2>
+      <p class="sec-desc fade-up d2">Mark's Personality Barber Shop earned its name. Walk in any morning and you'll get more than a cut — you'll get the kind of chair conversation that's why people drive across town to get their hair done here.</p>
+      <p class="sec-desc fade-up d3" style="margin-top:1rem">The cut still has to be sharp. Fades blended, beards squared, lineups clean. But we do it all with the kind of small-shop atmosphere that's harder and harder to find on a Main Street anywhere.</p>
+      <div class="about-quote fade-up d4">"You come in for a haircut. You leave with a story."</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="sec services-bg" id="services">
+  <div class="sec-inner">
+    <div class="sec-center">
+      <div class="sec-pre fade-up">What We Do</div>
+      <h2 class="sec-title fade-up d1">Services &amp; <em>Smiles</em></h2>
+      <p class="sec-desc fade-up d2">Walk-ins always welcome. Bring a friend, bring your kid, bring your dad.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card fade-up"><div class="svc-icon">✂️</div><h3 class="svc-name">Men's Cut</h3><p class="svc-desc">Classic, fade, taper — your call.</p><span class="svc-price">Call for pricing</span></div>
+      <div class="svc-card fade-up d1"><div class="svc-icon">🪒</div><h3 class="svc-name">Beard Trim</h3><p class="svc-desc">Shape, edge, clean up the line.</p><span class="svc-price">Call for pricing</span></div>
+      <div class="svc-card fade-up d2"><div class="svc-icon">💈</div><h3 class="svc-name">Hot Shave</h3><p class="svc-desc">Old-school straight razor.</p><span class="svc-price">Call for pricing</span></div>
+      <div class="svc-card fade-up"><div class="svc-icon">👦</div><h3 class="svc-name">Kids Cut</h3><p class="svc-desc">12 and under. First cuts welcome.</p><span class="svc-price">Call for pricing</span></div>
+      <div class="svc-card fade-up d1"><div class="svc-icon">🧓</div><h3 class="svc-name">Senior Cut</h3><p class="svc-desc">Discount for 65+.</p><span class="svc-price">Call for pricing</span></div>
+      <div class="svc-card fade-up d2"><div class="svc-icon">⭐</div><h3 class="svc-name">The Full Mark</h3><p class="svc-desc">Cut + beard + the conversation.</p><span class="svc-price">Call for pricing</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="sec" id="reviews">
+  <div class="sec-inner">
+    <div class="sec-center">
+      <div class="sec-pre fade-up">Reviews</div>
+      <h2 class="sec-title fade-up d1">What People <em>Say.</em></h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card fade-up"><div class="testi-stars">★★★★★</div><p class="testi-text">Mark cuts hair like he means it — and tells stories like he's lived three lives. Best haircut in Streator.</p><div class="testi-author">— Regular for 12 years</div></div>
+      <div class="testi-card fade-up d1"><div class="testi-stars">★★★★★</div><p class="testi-text">You don't go to Mark's just for a cut. You go because everyone in there knows your name and the cut comes out perfect every time.</p><div class="testi-author">— Local</div></div>
+      <div class="testi-card fade-up d2"><div class="testi-stars">★★★★★</div><p class="testi-text">First time in, left feeling like I'd been coming for ten years. The cut was sharp and so was the company.</p><div class="testi-author">— First-Timer</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="sec contact" id="visit">
+  <div class="sec-inner">
+    <div class="sec-pre fade-up">Visit</div>
+    <h2 class="sec-title fade-up d1">Stop In and <em>Say Hi.</em></h2>
+    <p class="sec-desc fade-up d2" style="margin:0 auto;max-width:520px">East Main Street, Streator. Yellow pole, friendly chair, fresh cut.</p>
+    <div class="contact-grid">
+      <div class="ci fade-up"><div class="ci-icon">📍</div><div class="ci-label">Address</div><div class="ci-value">423 E Main St<br>Streator, IL 61364</div></div>
+      <div class="ci fade-up d1"><div class="ci-icon">📞</div><div class="ci-label">Phone</div><div class="ci-value"><a href="tel:+18156724765">(815) 672-4765</a></div></div>
+      <div class="ci fade-up d2"><div class="ci-icon">🕐</div><div class="ci-label">Hours</div><div class="ci-value" style="font-size:.88rem;font-weight:500">Open Tue–Sat<br>Call to confirm</div></div>
+      <div class="ci fade-up d3"><div class="ci-icon">💵</div><div class="ci-label">Payment</div><div class="ci-value" style="font-size:.88rem;font-weight:500">Cash &amp; cards<br>Walk-ins OK</div></div>
+    </div>
+    <div class="map-wrap fade-up"><iframe src="https://www.google.com/maps?q=423+E+Main+St,+Streator,+IL+61364&output=embed" allowfullscreen loading="lazy"></iframe></div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="f-brand">Mark's Personality</div>
+  <div class="f-tag">Streator's Original Character Cut · 423 E Main St</div>
+  <div class="f-copy">© 2026 Mark's Personality Barber Shop · Streator, IL</div>
+</footer>
+
+<script>
+var nav=document.getElementById('nav');
+window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>40)});
+document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var h=this.getAttribute('href');if(h==='#')return;var t=document.querySelector(h);if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});document.getElementById('navLinks').classList.remove('open')}})});
+var o=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.fade-up').forEach(function(el){o.observe(el)});
+</script>
+
+</body>
+</html>
